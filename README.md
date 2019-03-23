@@ -9,3 +9,5 @@ secondly compose.
 third readme current file edited.
 
 fourth change the git config: user.name 
+
+fifth edit the git config: user.email
