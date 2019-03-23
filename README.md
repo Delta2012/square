@@ -2,6 +2,8 @@
 A web UI component based on Vue.js
 
 
-start compose
+start compose.
 
-secondly compose
+secondly compose.
+
+third readme current file edited.
