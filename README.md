@@ -2,12 +2,27 @@
 A web UI component based on Vue.js
 
 
-start compose.
+project structure
 
-secondly compose.
+-- square
 
-third readme current file edited.
+  -- public
+    --> index.html 
+    --> logo.ico
 
-fourth change the git config: user.name 
+  -- components 
+    -- loading
+      -- index.vue
 
-fifth edit the git config: user.email
+  -- src 
+    -- view
+      -- module
+        --> page.vue
+        ...
+      ...
+
+  -- entry
+    --> index.js 主入口
+    --> route.js 前端路由
+    --> store.js 前端数据
+    --> root.vue 根文件
