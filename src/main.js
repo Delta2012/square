@@ -1,3 +1,12 @@
-console.log('initialize the project entry file');
+import Vue from 'vue'
 
-const Comments = require('this is a simple change.');
+import App from './App.vue'
+
+// 全局组件
+import pluginInstall from '../lib/install/index'
+Vue.use(pluginInstall)
+
+new Vue({
+	el: '#square-root',
+	render: h => h(App)
+})
