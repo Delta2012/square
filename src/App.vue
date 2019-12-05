@@ -6,6 +6,13 @@
 	color:black;
 	text-align: center;
 }
+.svg-wrapper {
+	width: 100%;
+}
+.logo-img {
+	width: 100px;
+	height: 100px;
+}
 .loading-area {
 	width: 100%;
 	height: 500px;
@@ -15,11 +22,13 @@
 
 <template>
 	<div id="root">
-		
-		square
 
 		<button @click="showLoading = !showLoading">click me, show loading</button>
 
+		<div class="svg-wrapper">
+			<img src="../asset/logo.svg" alt="">
+		</div>
+		
 		<div class="loading-area">
 			<sq-loading :show="showLoading"></sq-loading>
 		</div>

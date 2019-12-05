@@ -1,0 +1,31 @@
+<svg width="80" height="80" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <rect x="25" y="25" width="30" height="30" stroke="#44a8e8" fill="transparent" stroke-width="6" />
+  <circle cx="40" cy="40" r="36" stroke="#EEEEEE" fill="transparent" stroke-width="8" stroke-dasharray="24, 4" />
+  <circle cx="40" cy="40" r="36" stroke="#44a8e8FF" fill="transparent" stroke-width="8" stroke-dasharray="24, 200">
+    <animateTransform attributeName="transform"
+      attributeType="XML"
+      type="rotate"
+      from="360 40 40"
+      to="0 40 40"
+      dur="0.9s"
+      repeatCount="indefinite"/>
+  </circle>
+  <circle cx="40" cy="40" r="36" stroke="#44a8e899" fill="transparent" stroke-width="8" stroke-dasharray="24, 4, 24, 172">
+    <animateTransform attributeName="transform"
+      attributeType="XML"
+      type="rotate"
+      from="360 40 40"
+      to="0 40 40"
+      dur="0.9s"
+      repeatCount="indefinite"/>
+  </circle>
+  <circle cx="40" cy="40" r="36" stroke="#44a8e855" fill="transparent" stroke-width="8" stroke-dasharray="24, 4, 24, 4, 24, 144">
+    <animateTransform attributeName="transform"
+      attributeType="XML"
+      type="rotate"
+      from="360 40 40"
+      to="0 40 40"
+      dur="0.9s"
+      repeatCount="indefinite"/>
+  </circle>
+</svg>

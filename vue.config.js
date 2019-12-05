@@ -23,5 +23,5 @@ module.exports = {
         // 自动打开默认浏览器
         open: true,
     },
-};
+}
 
