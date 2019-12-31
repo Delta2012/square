@@ -13,9 +13,9 @@
 	<div class="root">
 		<sq-button type="confirm" @click="onClick">确认</sq-button>
 		<sq-button>取消</sq-button>
-		<sq-dialog v-model="showDialog" title="删除多个项目" @confirm="onConfirm" :close-by-esc="true">
+		<sq-dialog v-model="showDialog" title="提示" @confirm="onConfirm">
 			<div class="dialog-content">
-				确认永久删除这4项
+				确认永久删除这些项目
 			</div>
 		</sq-dialog>
 	</div>
@@ -29,22 +29,13 @@ export default {
 			showDialog: false,
 		}
 	},
-	computed: {
-		
-	},
-	mounted() {
-		
-	},
-	destroyed() {
-		
-	},
 	methods: {
 		onClick() {
-      this.showDialog = true
-    },
-    onConfirm() {
-      
-    }
+			this.showDialog = true
+		},
+		onConfirm() {
+		
+		}
 	}
 }
 </script>

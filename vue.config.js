@@ -9,7 +9,7 @@
 
 module.exports = {
     // 部署应用包时的基本 URL
-    publicPath: '/',
+    publicPath: '/square',
 
     // 开发模式
     devServer: {

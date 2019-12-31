@@ -7,7 +7,7 @@
 
 /***************** 公共样式 *****************/
 .sq-main-enter, .sq-main-leave-to {
-  opacity: 0.7;
+  opacity: 0.5;
   transform: scale(0.95);
 }
 .sq-main-enter-active, .sq-main-leave-active {
@@ -16,4 +16,8 @@
 .sq-main-enter-to, .sq-main-leave {
   opacity: 1;
   transform: scale(1);
+}
+// 会话框禁止滚动
+.sq-dialog_no_overflow {
+  overflow: hidden;
 }
