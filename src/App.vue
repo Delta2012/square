@@ -16,6 +16,7 @@
 		<sq-dialog v-model="showDialog" title="提示" @confirm="onConfirm">
 			<div class="dialog-content">
 				确认永久删除这些项目
+				rfdfgdfdgfd尔特瑞特
 			</div>
 		</sq-dialog>
 	</div>

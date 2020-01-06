@@ -10,15 +10,10 @@
           <div 
             class="sq-dialog_header" 
             :class="{'sq-dialog_prompt': isPrompt}" 
-            draggable="true"
-            @dragstart="onDragstart"
-            @drag="onDrag"
-            @dragend="onDragend"
-            @dragenter.prevent
-            @dragover.prevent
+            @mousedown="onMousedown"
           >
             <span class="sq-dialog_title">{{ title }}</span>
-            <button type="button" class="sq-dialog_close" @click="close">×</button>
+            <button type="button" class="sq-dialog_close" @mousedown.stop @click="close">×</button>
           </div>
         </slot>
         <div class="sq-dialog_body">
@@ -67,6 +62,10 @@ export default {
   data() {
     return {
       isPrompt: false,
+      // 鼠标开始移动
+      isMoving: false,
+      // 鼠标进入
+      isEnter: false,
       // 初始坐标点
       initialX: 0,
       initialY: 0,
@@ -82,10 +81,12 @@ export default {
         this.$nextTick(() => {
           // 恢复到上次移动的位置
           this.translateDialog(this.lastDX, this.lastDY)
+          this.startListen()
         })
       }
       else {
         document.body.classList.remove('sq-dialog_no_overflow')
+        this.stopListen()
       }
     }
   },
@@ -135,30 +136,45 @@ export default {
     /**
      * 拖拽开始
      */
-    onDragstart(e) {
+    onMousedown(e) {
+      this.isMoving = true
       this.initialX = e.clientX
       this.initialY = e.clientY
     },
     /**
-     * 拖拽过程
+     * 启动监听
      */
-    onDrag(e) {
-      console.log(e)
-      const dX = this.lastDX + e.clientX - this.initialX
-      const dY = this.lastDY + e.clientY - this.initialY
-      this.translateDialog(dX, dY)
+    startListen() {
+      document.addEventListener('mousemove', this.onMousemove)
+      document.addEventListener('mouseup', this.onMouseup)
+    },
+    onMousemove(e) {
+      if (this.isMoving) {
+        const dX = this.lastDX + e.clientX - this.initialX
+        const dY = this.lastDY + e.clientY - this.initialY
+        this.translateDialog(dX, dY)
+        if (e.preventDefault) {
+          e.preventDefault()
+        }
+      }
+    },
+    onMouseup(e) {
+      if (this.isMoving) {
+        this.lastDX = this.lastDX + e.clientX - this.initialX
+        this.lastDY = this.lastDY + e.clientY - this.initialY
+      }
+      this.isMoving = false
     },
     /**
-     * 拖拽结束
+     * 停止监听
      */
-    onDragend(e) {
-      this.lastDX = this.lastDX + e.clientX - this.initialX
-      this.lastDY = this.lastDY + e.clientY - this.initialY
-      this.translateDialog(this.lastDX, this.lastDY)
+    stopListen() {
+      document.removeEventListener('mousemove', this.onMousemove)
+      document.removeEventListener('mouseup', this.onMouseup)
     },
     translateDialog(dx, dy) {
       this.$refs.sqDialog.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)'
-    }
+    },
   }
 }
 </script>
